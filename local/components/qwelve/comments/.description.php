@@ -10,6 +10,5 @@ $arComponentDescription = [
     "PATH" => [
         "ID" => "comments",
         "NAME" => "comments"
-    ],
-    "ICON" => "/images/logo.gif"
+    ]
 ];

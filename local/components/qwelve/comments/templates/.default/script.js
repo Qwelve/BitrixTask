@@ -51,4 +51,3 @@ $(document).ready(function(){
         $(this).slideUp("fast");
     })
 })
-// console.log(ajaxUrl);
