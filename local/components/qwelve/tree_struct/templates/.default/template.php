@@ -13,8 +13,19 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
             <p class="text-muted text-sm"><i class="fa fa-mobile fa-lg"></i> - <?=$arItem["UF_ADDTIME"]->toString()?></p>
          </div>
          <p><?=$arItem["UF_COMMENT"]?></p>
-         <div class="pad-ver">
+         <div class="pad-ver comment-response">
             <a class="btn btn-sm btn-default btn-hover-primary" href="#">Ответить</a>
+            <div class="response-panel" style="display:none;">
+               <div class="panel-body new-comment">
+                  <div>
+                     <input class="form-control w-100" type="text" name="fullName" value="" placeholder="Введите ваше фио">
+                  </div>               
+                  <textarea class="form-control w-100" rows="2" placeholder="Добавьте Ваш комментарий"></textarea>
+                  <div class="mar-top clearfix">
+                     <button class="add-new-response-record btn btn-sm btn-primary pull-right" type="submit"><i class="fa fa-pencil fa-fw"></i> Добавить</button>
+                  </div>
+               </div>
+         </div>
          </div>
          <?if($arItem["CHILDREN"]):?>
          <hr>

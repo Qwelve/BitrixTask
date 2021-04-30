@@ -47,7 +47,9 @@ class TreeCommentsComponent extends CBitrixComponent
         $strEntityDataClass = $obEntity->getDataClass();
         return $strEntityDataClass;
     }
-    public function buildTree(array &$elements, $parentId = 0) {
+    public function buildTree(&$elements, $parentId = 0) {
+        if(count($elements) < 1) return array();
+
         $branch = array();
     
         foreach ($elements as $element) {
@@ -62,13 +64,13 @@ class TreeCommentsComponent extends CBitrixComponent
         }
         return $branch;
     }
-    public function addNewComment($parentID, $section, $commentText){
+    public function addNewComment($parentID, $authorName, $commentText){
         $strEntityDataClass = $this->getHLBlock(2);
         $data = array(
-            "UF_AUTHOR"=>'James Addler',
-            "UF_PARENT_ID"=>'0',
-            "UF_COMMENT"=>'ADD_TEST',
-            "UF_POST_SECTION"=>"contacts",
+            "UF_AUTHOR"=>$authorName,
+            "UF_PARENT_ID"=>$parentID,
+            "UF_COMMENT"=>$commentText,
+            "UF_POST_SECTION"=>$this->arParams["COMMENT_OBJECT"],
             "UF_ADDTIME" => new \Bitrix\Main\Type\DateTime()
          );
       
