@@ -1,10 +1,10 @@
 <?php
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
-//global $USER; // для добавление записей
 CJSCore::Init(array('jquery'));
-
-
-
+$request = \Bitrix\Main\Context::getCurrent()->getRequest();
+if($request->isAjaxRequest()) {
+    $addItemInfo = $this->addNewComment($request->getPost("parent"), $request->getPost("author"), $request->getPost("comment"));
+}
 
 $arItems = $this->getHighLoadList();
 

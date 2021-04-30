@@ -18,11 +18,15 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
             <div class="response-panel" style="display:none;">
                <div class="panel-body new-comment">
                   <div>
-                     <input class="form-control w-100" type="text" name="fullName" value="" placeholder="Введите ваше фио">
+                     <?if (CUser::IsAuthorized()):?>
+                        <input type="hidden" name="fullName" value="<?=CUser::GetFullName()?>">
+                     <?else:?>
+                        <input class="form-control w-100" type="text" name="fullName" value="" placeholder="Введите ваше фио">
+                     <?endif?>
                   </div>               
                   <textarea class="form-control w-100" rows="2" placeholder="Добавьте Ваш комментарий"></textarea>
                   <div class="mar-top clearfix">
-                     <button class="add-new-response-record btn btn-sm btn-primary pull-right" type="submit"><i class="fa fa-pencil fa-fw"></i> Добавить</button>
+                     <button class="add-new-record btn btn-sm btn-primary pull-right" type="submit"><i class="fa fa-pencil fa-fw"></i> Добавить</button>
                   </div>
                </div>
          </div>
