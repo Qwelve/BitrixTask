@@ -6,14 +6,14 @@ function sendAjaxRequest(params){
             return;
         }
     });
-    BX.ajax({
+    $.ajax({
         url:"/local/components/qwelve/comments/ajax.php",
         data:params,
         method:"post",
-        onsuccess: function(data){
+        success: function(data){
             $(".container.comments").replaceWith(data);
         },
-        onfailure: function(){
+        error: function(){
             alert("Что-то пошло не так");
         }
     })
